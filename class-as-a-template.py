@@ -41,3 +41,34 @@ Product.printIt(p1)
 Product.printIt(p2)
 Product.printIt(p3)
 
+
+
+############## CODE SPLIT ##################
+############## 1. Provider #################
+
+class ClassName:
+    #class structure
+    pass
+
+############## 2. Consumer #################
+obj1 = ClassName()
+obj2 = ClassName()
+
+#...
+#objN.methodName
+
+
+
+# PizzaRestaurant -> class
+# pizza -> object
+# pizza prep -> __init()__
+
+class PizzaRestaurant:
+    def __init__(self):
+        pass
+
+
+pizza_michael = PizzaRestaurant()
+pizza_marry = PizzaRestaurant()
+pizza_john = PizzaRestaurant()
+# ...

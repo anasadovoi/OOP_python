@@ -1,19 +1,15 @@
 from datetime import datetime
-class User:
+from Model import Model
 
-    last_id = 1
+class User(Model):
 
     def __init__(self,name,email,password):
+        super().__init__()
         self.name = name
         self.email = email
         self.password = password
         self.created = datetime.now()
-
         self.memes=[]
-
-
-        self.id = User.last_id
-        User.last_id +=1
 
     def __str__(self) -> str:
         return f"User: {self.name} ({self.email})"

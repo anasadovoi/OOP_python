@@ -16,38 +16,33 @@ class Wagon:
 
 
 class Train:
-     def __init__(self):
+    def __init__(self):
           self.wagons = []
 
-     def addWagon(self, wagon):
+    def addWagon(self, wagon):
         # HW3: Validate the wagon; don't add a wagon with the same number
-        if wagon not in self.wagons:
-            self.wagons.append(wagon)
-        else:
-            print(f"Wagon {wagon} already exists. Cannot add duplicate wagons.")
-
+        for existing_wagon in self.wagons:
+            if existing_wagon.number == wagon.number:
+                print(f"Wagon {wagon} already exists")
+        self.wagons.append(wagon)
 
     #HW4:
     # create - removeWagon(self, number)
-     def removeWagon(self, number):
-          if number in self.wagons:
-            self.wagons.remove(number)
-          else:
-            print(f"Wagon {number} does not exist")
-     def __str__(self) :
-            #HW2: 
-            #1. using for loop 
-            #2. join, split
-            #3.  built in function python map
-            # <TRAIN>[10] =[20]
-            return f"<TRAIN>{self.wagons}"
+    def removeWagon(self, number):
+        for wagon in self.wagons:
+            if wagon.number == number:
+                self.wagons.remove(wagon)
+    def __str__(self) : 
+        # HW2: Display the train wagons using a for loop
+        return f"<TRAIN>{' '.join([str(wagon)+'=' for wagon in self.wagons])}"
 ##########################
 
 train = Train()
 train.addWagon(Wagon(10))
+train.addWagon(Wagon(70))
 train.addWagon(Wagon(20))
 train.addWagon(Wagon(20))
-train.addWagon(Wagon(10))
-train.removeWagon(Wagon(10))
+print(train)
+train.removeWagon(20)
 print(train)
 

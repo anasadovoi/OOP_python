@@ -45,3 +45,70 @@ One user posts 2 memes
  |      +--id '2'
  |       +--title 'Sport meme'
  | ----- +--author: user1
+
+
+# python /advanced / design patterns
+
+# singletone
+
+Storage
+   \
++---+-------------------+
+|                       |
+|     __init__()        |
+|       save(user)      |
+|                       |
++-----------------------+
+          ^
+          |
+      instance of Storage class
+          |
+        fileStorage = Storage()
+
+################################
+
+Storage object lifecycle 
+
+          __init__(...)                    __del__(...)
+          (  ....  )
+              +-------------------------------+
+              ^                               |
+              |                               v      
+x-------------x-------------------------------x---->
+        fileStorage = Storage()               del fileStorage
+                                              fileStorage = None
+                                              program end
+
+                                              
+Memory leak
+
+
+# Proxy Pattern
+                   |
+[consumer] <------ |<proxy> --------> [provider]
+                   |
+
+
+lazy initialization (ex: chat app)
+  traffic economy
+  cache 
+access control (protection proxy)
+logging request (logging proxy)
+
+
+Python
+
+ User (object)
+        \
+ +----------------+
+ |                |
+ |                |
+ |                |
+ |   to JSON()    +----json string -----> Storge -------- save ---------> json, yaml, csv
+ |                |
+ |                |
+ |                |
+ +----------------+
+
+
+'{"name":"John Doe"}'
